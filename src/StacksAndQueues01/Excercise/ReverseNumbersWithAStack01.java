@@ -15,8 +15,8 @@ public class ReverseNumbersWithAStack01 {
             numbers.push(Integer.parseInt(element));
         }
 
-        for (Integer element : numbers) {
-            System.out.print(element + " ");
+        while (!numbers.isEmpty()){
+            System.out.print(numbers.pop() + " ");
         }
 
     }
