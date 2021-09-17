@@ -13,11 +13,11 @@ public class CompareMatrices01 {
         int[][] matrixOne = readMatrix(matrixDimensionsFirst[0], matrixDimensionsFirst[1], scanner);
 
         int[] matrixDimensionsSecond = readDimensions(scanner);
-        int[][] matrixTwo = readMatrix(matrixDimensionsSecond[0],matrixDimensionsSecond[1],scanner);
+        int[][] matrixTwo = readMatrix(matrixDimensionsSecond[0], matrixDimensionsSecond[1], scanner);
 
-        if (areEqual(matrixOne,matrixTwo)){
+        if (areEqual(matrixOne, matrixTwo)) {
             System.out.println("equal");
-        }else {
+        } else {
             System.out.println("not equal");
         }
 
@@ -34,8 +34,8 @@ public class CompareMatrices01 {
         for (int i = 0; i < one.length; i++) {
             if (one[i].length != two[i].length)
                 return false;
-            for (int j = 0; j < two.length; j++) {
-                if (one[j].length != two[j].length)
+            for (int j = 0; j < one[i].length; j++) {
+                if (one[i][j] != two[i][j])
                     return false;
             }
         }
