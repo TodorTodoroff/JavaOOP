@@ -9,28 +9,24 @@ public class CompareMatrices01 {
         Scanner scanner = new Scanner(System.in);
 
 
-        int[] matrixDimensionsFirst = readDimensions(scanner);
-        int[][] matrixOne = readMatrix(matrixDimensionsFirst[0], matrixDimensionsFirst[1], scanner);
+        int rows = Integer.parseInt(scanner.nextLine().split("\\s+")[0]);
+        int[][] matrixOne = readMatrix(rows, scanner);
 
-        int[] matrixDimensionsSecond = readDimensions(scanner);
-        int[][] matrixTwo = readMatrix(matrixDimensionsSecond[0], matrixDimensionsSecond[1], scanner);
+        rows = Integer.parseInt(scanner.nextLine().split("\\s+")[0]);
+        int[][] matrixTwo = readMatrix(rows, scanner);
 
-        if (areEqual(matrixOne, matrixTwo)) {
-            System.out.println("equal");
-        } else {
-            System.out.println("not equal");
-        }
+        boolean areEqual = areEqual(matrixOne, matrixTwo);
+        String output = areEqual ? "equal" : "not equal";
 
+        System.out.println(output);
     }
 
-    private static int[] readDimensions(Scanner scanner) {
-        return Arrays.stream(scanner.nextLine().split("\\s+"))
-                .mapToInt(Integer::parseInt).toArray();
-    }
-    public static int[][] readMatrix(int rows, int columns, Scanner scanner) {
-        int[][] matrix = new int[rows][columns];
+
+    public static int[][] readMatrix(int rows, Scanner scanner) {
+        int[][] matrix = new int[rows][];
         for (int i = 0; i < rows; i++) {
-            int[] arr = readDimensions(scanner);
+            int arr[] = Arrays.stream(scanner.nextLine().split("\\s+"))
+                    .mapToInt(Integer::parseInt).toArray();
             matrix[i] = arr;
         }
         return matrix;
