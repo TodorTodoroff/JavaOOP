@@ -1,6 +1,7 @@
 package MultidimensionalArraysT2.Lab;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class CompareMatrices01 {
@@ -8,32 +9,23 @@ public class CompareMatrices01 {
         Scanner scanner = new Scanner(System.in);
 
 
-        int n = scanner.nextInt();
-        int x = scanner.nextInt();
+        int[] matrixDimensionsFirst = readDimensions(scanner);
+        int[][] matrixOne = readMatrix(matrixDimensionsFirst[0], matrixDimensionsFirst[1], scanner);
 
-        int[][] matrixOne = new int[n][x];
+        int[] matrixDimensionsSecond = readDimensions(scanner);
+        int[][] matrixTwo = readMatrix(matrixDimensionsSecond[0],matrixDimensionsSecond[1],scanner);
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < x; j++) {
-                matrixOne[i][j] = scanner.nextInt();
-            }
-        }
-
-        n = scanner.nextInt();
-        x = scanner.nextInt();
-        int[][] matrixTwo = new int[n][x];
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < x; j++) {
-                matrixTwo[i][j] = scanner.nextInt();
-            }
-        }
-        if (areEqual(matrixOne,matrixTwo)) {
+        if (areEqual(matrixOne,matrixTwo)){
             System.out.println("equal");
         }else {
             System.out.println("not equal");
         }
 
+    }
+
+    private static int[] readDimensions(Scanner scanner) {
+        return Arrays.stream(scanner.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt).toArray();
     }
 
     public static boolean areEqual(int[][] one, int[][] two) {
@@ -48,5 +40,14 @@ public class CompareMatrices01 {
             }
         }
         return true;
+    }
+
+    public static int[][] readMatrix(int rows, int columns, Scanner scanner) {
+        int[][] matrix = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            int[] arr = readDimensions(scanner);
+            matrix[i] = arr;
+        }
+        return matrix;
     }
 }
