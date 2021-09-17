@@ -27,6 +27,14 @@ public class CompareMatrices01 {
         return Arrays.stream(scanner.nextLine().split("\\s+"))
                 .mapToInt(Integer::parseInt).toArray();
     }
+    public static int[][] readMatrix(int rows, int columns, Scanner scanner) {
+        int[][] matrix = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            int[] arr = readDimensions(scanner);
+            matrix[i] = arr;
+        }
+        return matrix;
+    }
 
     public static boolean areEqual(int[][] one, int[][] two) {
         if (one.length != two.length)
@@ -42,12 +50,4 @@ public class CompareMatrices01 {
         return true;
     }
 
-    public static int[][] readMatrix(int rows, int columns, Scanner scanner) {
-        int[][] matrix = new int[rows][columns];
-        for (int i = 0; i < rows; i++) {
-            int[] arr = readDimensions(scanner);
-            matrix[i] = arr;
-        }
-        return matrix;
-    }
 }
