@@ -28,8 +28,11 @@ public class CompareMatrices01 {
                 matrixTwo[i][j] = scanner.nextInt();
             }
         }
-        System.out.println(areEqual(matrixOne,matrixTwo));
-
+        if (areEqual(matrixOne,matrixTwo)) {
+            System.out.println("equal");
+        }else {
+            System.out.println("not equal");
+        }
 
     }
 
