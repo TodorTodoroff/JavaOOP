@@ -20,7 +20,9 @@ public class MatrixOfPalindromes02 {
 
     private static void printMatrix(String[][] matrix) {
         for (String[] strings : matrix) {
-            System.out.println();
+            System.out.println(Arrays.toString(strings).replace("[","")
+                    .replace("]","")
+                    .replace(","," "));
         }
 
     }
