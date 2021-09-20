@@ -31,6 +31,7 @@ public class MaximalSum04 {
                 }
             }
         }
+        System.out.println("Sum = " + bestSum);
         printMatrix(matrix, rowIndex, colIndex);
 
     }
