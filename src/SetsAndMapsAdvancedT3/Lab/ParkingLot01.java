@@ -30,6 +30,7 @@ public class ParkingLot01 {
             System.out.println("Parking Lot is Empty");
         } else {
             System.out.println(parkingLot.stream().collect(Collectors.joining(System.lineSeparator())));
+            //System.out.println(String.join(System.lineSeparator(),parkingLot));
 
         }
 
