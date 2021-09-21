@@ -23,7 +23,12 @@ public class AverageStudentsGrades05 {
             studentGrades.get(key).forEach(e -> {
                 System.out.printf("%.2f ", e);
             });
-                System.out.printf("(avg: %.2f)%n",studentGrades.get(key).stream().mapToDouble(x->x).average().getAsDouble());
+            double average = 0;
+            for (Double aDouble : studentGrades.get(key)) {
+                    average+= aDouble;
+            }
+            average /= studentGrades.get(key).size();
+            System.out.printf("(avg: %.2f)%n", average);
         }
 
     }
