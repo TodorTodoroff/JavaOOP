@@ -26,6 +26,6 @@ public class CopyBytes03 {
                 }
             }
         }
-
+        outputStream.close();
     }
 }
