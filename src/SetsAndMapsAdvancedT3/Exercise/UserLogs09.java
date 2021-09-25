@@ -9,7 +9,7 @@ public class UserLogs09 {
         Scanner scanner = new Scanner(System.in);
 
         String IPv4 = "(?:[0-9]{1,3}\\.){3}[0-9]{1,3}";
-        String IPv6 = "FE80:(?<zeroes>[0-9]*):\\1:\\1:([0-9]*):([A-Z*0-9]*):([A-Z*0-9]*):[0-9]*";
+        String IPv6 = "([A-Z*a-z*0-9]*):(?<zeroes>[0-9]*):([A-Z*a-z0-9]*):([A-Z*a-z0-9]*):([A-Z*a-z0-9]*):([A-Z*a-z0-9]*):([A-Z*a-z0-9]*):([A-Z*a-z0-9]*)";
 
         Map<String, Map<String, Integer>> allTogether = new TreeMap<>();
 
