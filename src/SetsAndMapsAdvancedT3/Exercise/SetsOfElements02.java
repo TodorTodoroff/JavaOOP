@@ -1,10 +1,9 @@
 package SetsAndMapsAdvancedT3.Exercise;
 
-import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.stream.Collectors;
+
 
 public class SetsOfElements02 {
     public static void main(String[] args) {
@@ -24,11 +23,17 @@ public class SetsOfElements02 {
 
         }
         while (set2-- > 0) {
-            int setTwoValues = Integer.parseInt(scanner.nextLine());
-            setTwo.add(setTwoValues);
+            int setTwoValue = Integer.parseInt(scanner.nextLine());
+            setTwo.add(setTwoValue);
         }
         Set<Integer> contains = new LinkedHashSet<>();
 
+        for (Integer e : setOne) {
+            if (setTwo.contains(e)) {
+                contains.add(e);
+            }
 
+        }
+        contains.forEach(e -> System.out.printf("%d ", e));
     }
 }

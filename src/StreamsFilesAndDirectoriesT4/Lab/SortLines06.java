@@ -6,16 +6,18 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class SortLines06 {
     public static void main(String[] args) throws IOException {
 
-        Path path = Paths.get("C:\\Users\\Az\\Desktop\\JavaProjects\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\input.txt");
-        Path output = Paths.get("C:\\Users\\Az\\Desktop\\JavaProjects\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\sorLines.txt");
+        Path path = Paths.get("D:\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\input.txt");
+
         List<String> lines = Files.readAllLines(path);
         Collections.sort(lines);
 
-        Files.write(output, lines);
+        Files.write(Paths.get("output.txt"), lines);
+
+
+
     }
 }

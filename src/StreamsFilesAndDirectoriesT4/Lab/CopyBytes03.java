@@ -1,31 +1,26 @@
 package StreamsFilesAndDirectoriesT4.Lab;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 
 public class CopyBytes03 {
     public static void main(String[] args) throws IOException {
 
-        String path = "C:\\Users\\Az\\Desktop\\JavaProjects\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\input.txt";
+        InputStream input = new FileInputStream("D:\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\input.txt");
+        OutputStream output = new FileOutputStream("output.txt");
 
-        FileInputStream inputStream = new FileInputStream(path);
-        FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Az\\Desktop\\JavaProjects\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\CopyBytes.txt");
-
-        PrintStream out = new PrintStream(outputStream);
-
-        int value = 0;
-        while ((value = inputStream.read()) >= 0) {
-            if (value == 10 || value == 32) {
-                out.write(value);
-            } else {
-                String digits = String.valueOf(value);
+        int oneByte = 0;
+        while ((oneByte = input.read()) >= 0){
+            if (oneByte == 10 || oneByte == 13){
+                output.write(oneByte);
+            }else {
+                String digits = String.valueOf(oneByte);
                 for (int i = 0; i < digits.length(); i++) {
-                    out.write(digits.charAt(i));
+                    output.write(digits.charAt(i));
                 }
             }
+
+
         }
-        outputStream.close();
+        output.close();
     }
 }
