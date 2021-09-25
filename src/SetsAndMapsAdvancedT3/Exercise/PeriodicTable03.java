@@ -11,10 +11,14 @@ public class PeriodicTable03 {
 
         while (n-- > 0) {
             String[] input = scanner.nextLine().split("\\s+");
-
             elements.addAll(Arrays.asList(input));
 
+            //3 options for filling Set<>
+            //1. -> forEach from input
+            //2. -> Collections.addAll(Arrays.asList(input));
+            //3. -> elements.addAll(Arrays.asList(input));
         }
+
        elements.forEach(e -> System.out.printf("%s ",e));
     }
 }
