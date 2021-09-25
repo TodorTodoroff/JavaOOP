@@ -34,6 +34,8 @@ public class SetsOfElements02 {
             }
 
         }
+        //setOne.retainAll(setTwo);
+        // checks if setTwo contains all the elements from setOne and leaves only the ones which are contained in both sets
         contains.forEach(e -> System.out.printf("%d ", e));
     }
 }
