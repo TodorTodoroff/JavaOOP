@@ -3,7 +3,7 @@ package SetsAndMapsAdvancedT3.Exercise;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
+
 
 public class FixEmails07 {
     public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class FixEmails07 {
 
             name = scanner.nextLine();
         }
-        allTogether.entrySet().stream().forEach(e -> System.out.println(e.getKey() + " -> " + e.getValue()));
+        allTogether.forEach((key, value) -> System.out.println(key + " -> " + value));
 
     }
 }
