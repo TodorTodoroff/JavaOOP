@@ -13,15 +13,27 @@ public class SortEvenNumbers01 {
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
 
-        List<Integer> evenNumbers = numbers.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
+        List<Integer> evenNumbers = numbers
+                .stream()
+                .filter(x -> x % 2 == 0)
+                .collect(Collectors.toList());
 
 //        System.out.println(String.join(", ", numbers.toString().replace("[","").replace("]","")));
 //        numbers.sort(Integer::compareTo);
 //        System.out.println(String.join(", ", numbers.toString().replace("[","").replace("]","")));
-        String firstOutput = evenNumbers.stream().map(String::valueOf).collect(Collectors.joining(", "));
+        String firstOutput = evenNumbers
+                .stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "));
+
         System.out.println(firstOutput);
 
-        String secondOutput = evenNumbers.stream().sorted(Integer::compareTo).map(String::valueOf).collect(Collectors.joining(", "));
+        String secondOutput = evenNumbers
+                .stream()
+                .sorted(Integer::compareTo)
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "));
+
         System.out.println(secondOutput);
     }
 }
