@@ -2,6 +2,7 @@ package FunctionalProgrammingT5.Lab;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class SumNumbers02 {
@@ -16,8 +17,11 @@ public class SumNumbers02 {
                 .mapToInt(Integer::parseInt)
                 .sum();
 
-        System.out.println("Count = " + inputCount.apply(numbers));
+        Consumer<Integer> printCount = x -> System.out.println("Count = " + x);
+
+        printCount.accept(inputCount.apply(numbers));
         System.out.println("Sum = " + sum.apply(numbers));
+
     }
 }
 
