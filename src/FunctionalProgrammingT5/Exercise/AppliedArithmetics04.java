@@ -35,6 +35,7 @@ public class AppliedArithmetics04 {
                     break;
                 case "print":
                     print.accept(nums);
+                    System.out.println();
                     break;
             }
             command = scanner.nextLine();
