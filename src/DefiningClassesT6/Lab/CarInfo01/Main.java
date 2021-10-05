@@ -8,18 +8,19 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        List<Object> carList = new ArrayList<>();
+        List<Car> carList = new ArrayList<>();
         int n = Integer.parseInt(scanner.nextLine());
 
-        Car car = new Car();
 
         while (n-- > 0) {
             String[] input = scanner.nextLine().split("\\s+");
-            car.setBrand(input[0]);
-            car.setModel(input[1]);
-            car.setHorsePower(Integer.parseInt(input[2]));
-            carList.add(car);
-            car = new Car();
+            Car car;
+            if (input.length > 1) {
+                car = new Car(input[0], input[1], Integer.parseInt(input[2]));
+            } else {
+               car = new Car(input[0]);
+            }
+                carList.add(car);
         }
         for (Object o : carList) {
             System.out.println(o.toString());
