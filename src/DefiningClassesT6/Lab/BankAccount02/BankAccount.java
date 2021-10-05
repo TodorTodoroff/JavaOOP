@@ -1,9 +1,8 @@
 package DefiningClassesT6.Lab.BankAccount02;
 
 public class BankAccount {
-    private final static double DEFAULT_INTEREST = 0.02;
 
-    private static double rate = DEFAULT_INTEREST;
+    private static double rate = 0.02;
     private static int bankAccountCount = 1;
 
     private int id;
