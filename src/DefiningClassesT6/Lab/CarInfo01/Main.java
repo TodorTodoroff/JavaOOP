@@ -23,7 +23,7 @@ public class Main {
                 carList.add(car);
         }
         for (Object o : carList) {
-            System.out.println(o.toString());
+            System.out.println(o);
         }
 
     }
