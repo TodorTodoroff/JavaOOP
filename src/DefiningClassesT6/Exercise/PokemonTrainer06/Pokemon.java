@@ -1,14 +1,25 @@
 package DefiningClassesT6.Exercise.PokemonTrainer06;
 
 public class Pokemon {
-    private String pokemonName;
-    private String pokemonElement;
-    private int pokemonHealth;
+    private String name;
+    private String element;
+    private int health;
 
-    public Pokemon(String pokemonName, String pokemonElement, int pokemonHealth) {
-        this.pokemonName = pokemonName;
-        this.pokemonElement = pokemonElement;
-        this.pokemonHealth = pokemonHealth;
+    public Pokemon(String name, String element, int health) {
+        this.name = name;
+        this.element = element;
+        this.health = health;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getElement() {
+        return element;
+    }
+
+    public int getHealth() {
+        return health;
+    }
 }
