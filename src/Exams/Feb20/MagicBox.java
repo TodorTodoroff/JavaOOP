@@ -3,46 +3,39 @@ package Exams.Feb20;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class MagicBox {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int[] firstBox = Arrays.stream(scanner.nextLine().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        ArrayDeque<Integer> firstBoxQueue = Arrays.stream(scanner.nextLine().split("\\s+"))
+                .map(Integer::parseInt)
+                .collect(Collectors.toCollection(ArrayDeque::new));
 
-        int[] secondBox = Arrays.stream(scanner.nextLine().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
-
-
-        ArrayDeque<Integer> firstBoxStack = new ArrayDeque<>();
         ArrayDeque<Integer> secondBoxStack = new ArrayDeque<>();
 
-        for (int box : firstBox) {
-            firstBoxStack.offer(box);
-        }
-        for (int box : secondBox) {
-            secondBoxStack.push(box);
-        }
+                Arrays.stream(scanner.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .forEach(secondBoxStack::push);
+
 
         int sum = 0;
 
-        while (firstBoxStack.size() > 0 && secondBoxStack.size() > 0) {
-            int firstNum = firstBoxStack.peek();
+        while (firstBoxQueue.size() > 0 && secondBoxStack.size() > 0) {
+            int firstNum = firstBoxQueue.peek();
             int secondNum = secondBoxStack.pop();
 
             if ((firstNum + secondNum) % 2 == 0) {
-                firstBoxStack.pop();
+                firstBoxQueue.pop();
 
                 sum += firstNum + secondNum;
 
             } else {
-                firstBoxStack.offer(secondNum);
+                firstBoxQueue.offer(secondNum);
             }
         }
-        String outputBox = firstBoxStack.isEmpty() ? "First magic box is empty." : "Second magic box is empty";
+        String outputBox = firstBoxQueue.isEmpty() ? "First magic box is empty." : "Second magic box is empty.";
         String itemsValue = sum >= 90 ? "Wow, your prey was epic! Value: "
                 : "Poor prey... Value: ";
 
