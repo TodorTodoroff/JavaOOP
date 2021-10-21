@@ -17,16 +17,17 @@ public class Bomb {
 
         char[][] matrix = new char[size][size];
 
-        for (int row = 0; row < size; row++) {
+        for (int r = 0; r < size; r++) {
             String line = scanner.nextLine().replaceAll("\\s+", "");
-            matrix[row] = line.toCharArray();
-            if (line.contains("B")) {
-                bombsOnMap++;
-            }
-            for (char chars : matrix[row]) {
-                if (chars == 'B') {
+            matrix[r] = line.toCharArray();
+            for (char symbol : matrix[r]) {
+                if (symbol == 'B') {
                     bombsOnMap++;
                 }
+            }
+            if (line.contains("s")) {
+                row = r;
+                col = line.indexOf("s");
             }
         }
 
@@ -68,7 +69,7 @@ public class Bomb {
         if (current == 'B') {
             System.out.println("You found a bomb!");
             bombsOnMap--;
-        }else if (current == 'e'){
+        } else if (current == 'e') {
             return true;
         }
         return false;
