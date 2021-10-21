@@ -1,4 +1,4 @@
-package Exams.Feb222020.Guild;
+package Exams.Feb22.Guild;
 
 public class Main {
 

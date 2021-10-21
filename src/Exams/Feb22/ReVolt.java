@@ -1,4 +1,4 @@
-package Exams.Feb222020;
+package Exams.Feb22;
 
 import java.util.Arrays;
 import java.util.Scanner;
