@@ -9,12 +9,13 @@ public class RhombusOfStars01 {
 
         int n = Integer.parseInt(scanner.nextLine());
 
+        printFigure(n);
+    }
+
+    private static void printFigure(int n) {
         printTop(n);
-
         printLineOfSpacesOrStars(n, "* ");
-
         System.out.println();
-
         printBottom(n);
     }
 
