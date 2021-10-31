@@ -7,59 +7,38 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-            int[] dimestions = Arrays.stream(scanner.nextLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+        int[] dimensions = readPositions(scanner.nextLine());
+        int rows = dimensions[0];
+        int cols = dimensions[1];
 
-            int x = dimestions[0];
-            int y = dimestions[1];
+        Field field = new Field(rows, cols);
+        JediMovement jediMovement = new JediMovement();
+        Galaxy galaxy = new Galaxy(field, jediMovement);
 
-            int[][] matrix = new int[x][y];
+        String command = scanner.nextLine();
+        long starsCollected = 0;
+        while (!command.equals("Let the Force be with you")) {
+            int[] jediPosition = readPositions(command);
+            int[] evilPosition = readPositions(scanner.nextLine());
 
-            int value = 0;
-            for (int i = 0; i < x; i++)
-            {
-                for (int j = 0; j < y; j++)
-                {
-                    matrix[i][j] = value++;
-                }
-            }
+            int rowEvil = evilPosition[0];
+            int colEvil = evilPosition[1];
+            galaxy.moveEvil(rowEvil, colEvil);
 
-            String command = scanner.nextLine();
-            long sum = 0;
-            while (!command.equals("Let the Force be with you"))
-            {
-                int[] ivoS = Arrays.stream(command.split(" ")).mapToInt(Integer::parseInt).toArray();
-                int[] evil = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-                int xE = evil[0];
-                int yE = evil[1];
+            int rowJedi = jediPosition[0];
+            int colJedi = jediPosition[1];
 
-                while (xE >= 0 && yE >= 0)
-                {
-                    if (xE >= 0 && xE < matrix.length && yE >= 0 && yE < matrix[0].length)
-                    {
-                        matrix[xE] [yE] = 0;
-                    }
-                    xE--;
-                    yE--;
-                }
+            starsCollected = galaxy.moveJedi(rowJedi, colJedi);
 
-                int xI = ivoS[0];
-                int yI = ivoS[1];
+            command = scanner.nextLine();
+        }
 
-                while (xI >= 0 && yI < matrix[1].length)
-                {
-                    if (xI >= 0 && xI < matrix.length && yI >= 0 && yI < matrix[0].length)
-                    {
-                        sum += matrix[xI][yI];
-                    }
+        System.out.println(starsCollected);
 
-                    yI++;
-                    xI--;
-                }
 
-                command = scanner.nextLine();
-            }
-        System.out.println(sum);
+    }
+
+    private static int[] readPositions(String command) {
+        return Arrays.stream(command.split(" ")).mapToInt(Integer::parseInt).toArray();
     }
 }

@@ -1,6 +1,6 @@
 package WorkingWithAbstractionT1.Exercise.TrafficLights;
 
-public enum Signal {
+public enum Color {
     RED,
     GREEN,
     YELLOW
