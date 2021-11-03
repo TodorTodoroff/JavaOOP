@@ -9,8 +9,8 @@ public class Person {
     private List<Product> products;
 
     public Person(String name, double money) {
-        this.setMoney(money);
         this.setName(name);
+        this.setMoney(money);
         this.products = new ArrayList<>();
     }
 
@@ -28,20 +28,24 @@ public class Person {
         this.money = money;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public List<Product> getProducts(){
-        return this.products;
-    }
     public void buyProduct(Product product) {
-        if(this.money < product.getCost()){
-            String message = String.format("%s can't afford %s", this.name, product.getName());
+        String message;
+        if (this.money >= product.getCost()) {
+            this.products.add(product);
+            this.money -= product.getCost();
+            message = String.format("%s bought %s", this.name, product.getName());
+            System.out.println(message);
+        } else {
+            message = String.format("%s can't afford %s", this.name, product.getName());
             throw new IllegalArgumentException(message);
         }
-        this.products.add(product);
-        this.money -= product.getCost();
-        System.out.printf("%s bought %s%n", this.name, product.getName());
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Product> getProducts() {
+        return products;
     }
 }
