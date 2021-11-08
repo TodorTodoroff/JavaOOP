@@ -1,9 +1,16 @@
 package InterfacesAndAbstractionT4.Lab.sayHello;
 
-public class Chinese extends BasePerson {
+public class Chinese implements Person {
+
+    private String name;
 
     public Chinese(String name) {
-        super(name);
+       this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 
     @Override

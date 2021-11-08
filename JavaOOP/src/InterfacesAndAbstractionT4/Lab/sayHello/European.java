@@ -1,9 +1,16 @@
 package InterfacesAndAbstractionT4.Lab.sayHello;
 
-public class European extends BasePerson {
+public class European implements Person {
+
+    private String name;
 
     public European(String name) {
-        super(name);
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 
     @Override

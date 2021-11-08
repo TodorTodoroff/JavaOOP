@@ -1,9 +1,15 @@
 package InterfacesAndAbstractionT4.Lab.sayHello;
 
-public class Bulgarian extends BasePerson {
+public class Bulgarian implements Person {
+    private String name;
 
     public Bulgarian(String name) {
-        super(name);
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 
     @Override
