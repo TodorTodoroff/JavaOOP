@@ -2,16 +2,21 @@ package PolymorphismT5.Exercise.vehicle;
 
 import java.text.DecimalFormat;
 
-public abstract class VehicleImpl implements Vehicle {
+public class VehicleImpl implements Vehicle {
     protected double fuelQuantity;
     protected double fuelConsumption;
+    protected double tankCapacity;
 
-    public VehicleImpl(double fuelQuantity, double fuelConsumption) {
-        this.fuelQuantity = fuelQuantity;
+    protected VehicleImpl(double fuelQuantity, double fuelConsumption, double tankCapacity) {
+        this.setFuelQuantity(fuelQuantity);
         this.setFuelConsumption(fuelConsumption);
+        this.tankCapacity = tankCapacity;
     }
 
     public void setFuelQuantity(double fuelQuantity) {
+        if (fuelQuantity <= 0) {
+            System.out.println("Fuel must be a positive number");
+        }
         this.fuelQuantity = fuelQuantity;
     }
 
@@ -25,6 +30,11 @@ public abstract class VehicleImpl implements Vehicle {
 
     @Override
     public void refuel(double fuelRefueled) {
+        if (fuelRefueled <= 0) {
+            throw new IllegalArgumentException("Fuel must be a positive number");
+        } else if (this.tankCapacity < fuelRefueled + this.fuelQuantity) {
+            throw new IllegalArgumentException("Cannot fit fuel in tank");
+        }
         this.fuelQuantity += fuelRefueled;
     }
 
